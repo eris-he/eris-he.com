@@ -1,0 +1,408 @@
+
+/* Creating blinking animation */
+@keyframes cursor-blink {
+    0% {
+      opacity: 0;
+    }
+  }
+
+#blinking::after {
+    content: "";
+    width: 0.2rem;
+    height: 4rem;
+    background: white;
+    display: inline-block;
+    animation: cursor-blink 1.5s steps(2) infinite;
+    z-index: -1;
+}
+
+
+/* Important Links Card Styling */
+.cardContainer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.cardContainer .box
+{
+  position: relative;
+  width: 320px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 30px;
+  transition: 0.5s;
+}
+
+.cardContainer .box::before
+{
+  content:' ';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+}
+
+.cardContainer .box::after
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 50;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  filter: blur(30px);
+}
+
+.cardContainer .box:hover:before,
+.cardContainer .box:hover:after
+{
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+  
+}
+
+.cardContainer .box:nth-child(1):before,
+.cardContainer .box:nth-child(1):after
+{
+  background: linear-gradient(315deg, #ffbc00, #ff0058)
+}
+
+.cardContainer .box:nth-child(2):before,
+.cardContainer .box:nth-child(2):after
+{
+  background: linear-gradient(315deg, #03a9f4, #ff0058)
+}
+
+.cardContainer .box:nth-child(3):before,
+.cardContainer .box:nth-child(3):after
+{
+  background: linear-gradient(315deg, #4dff03, #00d0ff)
+}
+
+.cardContainer .box span
+{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.cardContainer .box span::before
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.1s;  
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+}
+
+.cardContainer .box:hover span::before
+{
+  top: -50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.cardContainer .box span::after
+{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.5s;
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  animation-delay: -1s;
+}
+
+.cardContainer .box:hover span:after
+{
+  bottom: -50px;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+@keyframes animate
+{
+  0%, 100%
+  {
+    transform: translateY(10px);
+  }
+  
+  50%
+  {
+    transform: translate(-10px);
+  }
+}
+
+.cardContainer .box .content
+{
+  position: relative;
+  left: 0;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1;
+  transform: 0.5s;
+  color: #fff;
+  text-shadow: 2px 2px 10px #000000, 2px 2px 10px #000000;
+}
+
+.cardContainer .box:hover .content
+{
+  left: -25px;
+  padding: 60px 40px;
+}
+
+.cardContainer .box .content h2
+{
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.cardContainer .box .content p
+{
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.cardContainer .box .content a
+{
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #fff;
+  background: #111;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 5px;
+  text-shadow: none;
+}
+
+.cardContainer .box .content a:hover
+{
+  background: #46007f;
+  border: 1px solid rgba(255, 0, 88, 0.4);
+  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+}
+
+/* Hobby Cards */
+$transition-ease-in-out: all .25s ease-in-out 0s;
+$transition-cubic-bezier : all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$animation-offset: 80px;
+
+// *, :after, :before {
+//     box-sizing: border-box;
+// }
+// html, body {
+// 	height: 100%;
+// }
+// body {
+// 	font-family: "Lato", sans-serif;
+// 	background: #eee;
+// 	padding: 100px 60px;
+// 	animation: fade-in 3s ease-in-out forwards;
+// }
+// strong {
+// 	font-weight: 900;
+// }
+.canvas-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	
+	.canvas + .canvas {
+		margin-left: 40px;
+	}
+
+    padding:3rem 0 3rem 0;
+    margin: 0 0 5rem 0;
+}
+.canvas {
+	position: relative;
+	display: block;
+	width: 400px;
+	height: 400px;
+	padding: 20px;
+	color: inherit;
+	text-decoration: none;
+    margin: 2rem;
+}
+.canvas_border {
+	position: absolute;
+	top: 40px;
+	left: -40px;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+
+	svg {
+		height: 100%;
+		width: 100%;
+	}
+}
+.rect-gradient {
+	stroke-dasharray: 2000;
+	stroke-dashoffset: 2000;
+	animation: erase-line 1s ease-in-out forwards;
+}
+.canvas_img-wrapper {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transform: rotate(-10deg) skew(-10deg);
+	overflow: hidden;
+	background: rgb(111, 111, 111);
+}
+.canvas_img {
+	transform: scale3d(.9,.9,.9);
+	opacity: .3;
+	max-width: 200px;
+	max-height: 200px;
+}
+.canvas_copy {
+	position: absolute;
+	bottom: 0;
+	left: 85%;
+	text-transform: uppercase;
+	color: #dac527;
+	z-index: 100;
+}
+.canvas_copy--left {
+	left: -25%;
+}
+.canvas_copy_title {
+	font-size: 62px;
+	display: block;
+	transform: translateX(-#{$animation-offset});
+		transition: $transition-cubic-bezier 0s;
+		color: white;
+
+		&:nth-child(1) {
+			transition-delay: 0.1s;
+			}
+		&:nth-child(2) {
+			transition-delay: 0.2s;
+			}
+}
+.canvas_copy_subtitle {
+	display: block;
+	transform: rotate(270deg) translateY(-100%) translateX(calc(-100% - #{$animation-offset}));
+	transform-origin: top left;
+	position: absolute;
+	left: 0;
+	top: 8px; //This needs to change with font size. It's an offset for the line-height of the "hellow world"
+	font-size: 24px;
+	font-weight: 900;
+	transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s;
+}
+.canvas_copy_details {
+	display: block;
+	transition: $transition-cubic-bezier 0.14s;
+	transform: translateX(-#{$animation-offset});
+		}
+.canvas_border, .canvas_img-wrapper, .canvas_img  {
+	transition: $transition-ease-in-out;	
+}
+.canvas_border, .canvas_img-wrapper {
+	transform: rotate(-10deg) skew(-10deg);	
+}
+.canvas_copy_title, .canvas_copy_subtitle, .canvas_copy_details {
+	opacity: 0;
+}
+.canvas:hover {
+	.canvas_copy_title, .canvas_copy_subtitle, .canvas_copy_details, .canvas_img {
+		opacity: 1;
+	}
+	.canvas_border, .canvas_img-wrapper {
+		transform: rotate(-14deg) skew(-14deg) scale(0.96);
+	}
+	.canvas_img {
+		transform: scale3d(1,1,1);
+	}
+	.canvas_copy_title, .canvas_copy_details {
+		transform: translateX(0);
+	}
+	.canvas_copy_subtitle {
+		transform: rotate(270deg) translateY(-100%) translateX(-100%);
+	}
+	.rect-gradient {
+		animation: draw-line 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+	}
+}
+
+@keyframes draw-line {
+	from {
+		stroke-dashoffset: 2000;		
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes erase-line {
+	from {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: 2000;		
+	}
+}
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
