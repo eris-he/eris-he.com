@@ -1,3 +1,5 @@
+const localImages = require('eleventy-plugin-local-images');
+
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("css/Site.css");
 	eleventyConfig.addPassthroughCopy("scripts/Site.js");
@@ -8,4 +10,12 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("scripts/index.js");
     eleventyConfig.addPassthroughCopy("css/index.css");
     eleventyConfig.addPassthroughCopy("hobbies.html");
+    eleventyConfig.addPassthroughCopy("css/pens.css");
+    eleventyConfig.addPassthroughCopy("scripts/pens.js");
+    eleventyConfig.addPlugin(localImages, {
+        distPath: '_site',
+        assetPath: '/img',
+        selector: 'img',
+        verbose: false
+      });
 };

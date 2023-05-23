@@ -1,0 +1,138 @@
+body {
+  overflow-x: hidden;
+}
+
+.cm-slider__wrapper {
+  overflow-x: scroll;
+}
+
+.cm-slider {
+  display: flex;
+  gap: 5vmin;
+  user-select: none;
+}
+
+.cm-slider__image {
+  min-width: 45vmin;
+  max-width: 45vmin;
+  height: 65vh;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (hover: hover) {
+  .cm-slider__wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    width: 80vw;
+    max-width: 80vw !important;
+    margin-left: calc(-40vw + 50%);
+    margin-right: calc(-40vw + 50%);
+  }
+}
+@media (hover: hover) and (max-width: 1120px) {
+  .cm-slider__wrapper {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+  }
+}
+@media (hover: hover) {
+  .cm-slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+  }
+  .cm-slider__image {
+    object-position: 0% center;
+  }
+}
+@media (hover: none) {
+  .cm-slider__image {
+    min-width: 65vmin;
+    max-width: 65vmin;
+  }
+  .cm-slider > :first-child {
+    margin-left: 5vmin;
+  }
+  /* Some display:flex and ::after voodoo to get a margin-right in overflow-x:scroll https://stackoverflow.com/a/38997047 */
+  .cm-slider > :last-child {
+    display: flex;
+  }
+  .cm-slider > :last-child::after {
+    content: "";
+    flex: 0 0 5vmin;
+  }
+  .cm-slider__wrapper {
+    overflow-x: scroll;
+    padding: 5vmin 0;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+  }
+}
+@media (hover: hover) {
+  .cm-slider {
+    position: static;
+    transform: none;
+    height: 100%;
+    align-items: center;
+  }
+  .cm-slider > :first-child {
+    margin-left: 5vmin;
+  }
+  .cm-slider > :last-child {
+    display: flex;
+  }
+  .cm-slider > :last-child::after {
+    content: "";
+    flex: 0 0 5vmin;
+  }
+  .cm-slider__wrapper {
+    overflow-x: scroll;
+  }
+  .cm-slider__image {
+    object-position: center;
+  }
+}
+.full-screen {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  animation: go-full-screen forwards 500ms ease-in-out, fadeIn 500ms;
+  max-width: 100vw;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.shrink-down {
+  animation: go-full-screen reverse backwards 500ms ease-in-out, fadeIn reverse 500ms !important;
+}
+
+@keyframes go-full-screen {
+  from {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+  }
+  to {
+    height: 100vh;
+    margin: auto;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=pens.css.map */

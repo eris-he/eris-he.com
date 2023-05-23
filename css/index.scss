@@ -256,6 +256,7 @@ $animation-offset: 80px;
 	align-items: center;
 	justify-content: center;
 	height: 100%;
+  flex-wrap:wrap;
 	
 	.canvas + .canvas {
 		margin-left: 40px;
