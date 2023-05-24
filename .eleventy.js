@@ -11,7 +11,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("css/index.css");
     eleventyConfig.addPassthroughCopy("hobbies.html");
     eleventyConfig.addPassthroughCopy("css/pens.css");
+    eleventyConfig.addPassthroughCopy("css/hobbies.css");
     eleventyConfig.addPassthroughCopy("scripts/pens.js");
+    eleventyConfig.addPassthroughCopy("scripts/hobbies.js");
     eleventyConfig.addPlugin(localImages, {
         distPath: '_site',
         assetPath: '/img',

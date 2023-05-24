@@ -4,6 +4,11 @@ const getWindowHeight = () => window.innerHeight || document.documentElement.cli
 const getWidthAdjustment = () => (getWindowWidth() - cmSliderWrapper.offsetWidth) / 2
 //const isTouchScreenOnly = () => ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
 const isTouchScreenOnly = () => !window.matchMedia("(hover: hover)").matches;
+cmSliderWrapper.addEventListener("wheel", (evt) => {
+    evt.preventDefault();
+    cmSliderWrapper.scrollLeft += evt.deltaY;
+    cmSliderWrapper.scrollLeft += evt.deltaX;
+})
 cmSliderWrapper.onmousemove = e => {
     if(isTouchScreenOnly()) return;
     let percentage = ((e.clientX - getWidthAdjustment()) / cmSliderWrapper.offsetWidth) * 100;
@@ -19,6 +24,7 @@ cmSliderWrapper.onmousemove = e => {
     }
     cmSlider.animate({
         transform: `translateX(${-percentage}%, -50%)`
+        // transform: `translate(${-percentage}%, -50%)`
     },{
         duration:animateDuration, fill:"forwards"
     });
@@ -135,8 +141,8 @@ const nudgeSliderScrollPosition = () => {
     const percentageInViewport = 0.33;
     const nudgeRange = rect.height * percentageInViewport;
     if(Math.abs(rect.top) > nudgeRange) return;
-    //if(scrollDirection === 1 && rect.top + (nudgeRange/2) < 0) return; // don't nudge if we are scrolling downwards to leave the slider
-    //if(scrollDirection === -1 && rect.bottom - (nudgeRange/2) > rect.height) return; // don't nudge if we are scrolling upwards to leave the slider
+    if(scrollDirection === 1 && rect.top + (nudgeRange/2) < 0) return; // don't nudge if we are scrolling downwards to leave the slider
+    if(scrollDirection === -1 && rect.bottom - (nudgeRange/2) > rect.height) return; // don't nudge if we are scrolling upwards to leave the slider
     let distance = rect.top / 10;
     const currentScrollPosition = getScrollPosition();
     window.scrollBy({

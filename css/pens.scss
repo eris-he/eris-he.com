@@ -3,7 +3,13 @@ body{
 }
 .cm-slider__wrapper{
     overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cm-slider__wrapper::-webkit-scrollbar {
+    display: none;
+  }
 .cm-slider{
     display: flex;
     gap: 5vmin;
