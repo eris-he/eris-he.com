@@ -18,7 +18,42 @@
     <label for="handle1">A.I. Pacman Agent</label>
   </h2>
   <div class="content">
-    <p>Written as part of a project for my Evolutionary Computing class, this Pacman agent uses a Goza-tree style algorithm to determine the next best possible action to take.</p>
+    <video class="image" controls autoplay>
+      <source src="img/exhibition_game_vid.mov" type="video/mp4">
+    </video>
+    <p>Using evolutionary computing methods, this self-playing Pacman agent uses a Koza-tree style algorithm to determine the next best possible action to take.</p>
+    <p>
+      In this project, we are trying to evolve the best possible Pacman agent to play the game--in other words, find the agent with the highest fitness. 
+      The fitness function is based on the score of the game, with a higher score resulting in a higher fitness.
+      We generate an initial population of random Pacman agents, and then evolve them over a number of generations.
+      At the final generation, we select the agent with the highest fitness as the best agent.
+    </p>
+    <p>
+      The initial population's genes are generated randomly through ramped half-and-half initialization. 
+      Each individual represents a tree of actions that the agent can take, with each node representing an action and each leaf representing a terminal state.
+      The actions are based on the possible actions that Pacman can take in the game, and the terminal states are based on the possible states that Pacman can be in.
+      Each individual is also assigned an initial fitness value based on the fitness function (in other words, how well it plays the game).
+    </p>
+    <figure>
+      <img class="image" src="img/projects_ec1.png" alt="The full function for the ramped half-and-half.">
+      <figcaption>The full function for the ramped half-and-half.</figcaption>
+    </figure>
+    <p>
+      The genes are then recombined and mutated through subtree mutation, subtree crossover, and point mutation. 
+      We use a fitness-based selection method (k-tournament without replacement) to select the survivors and therefore also reproduce for the next generation.
+      A penalty function based on the depth of the tree is used to encourage smaller trees and thus more efficient agents.
+    </p>
+    <p>
+      This process is repeated for a number of generations, and the agent with the highest fitness at the end is selected as the best agent.
+    </p>
+    <figure>
+      <img class="image" src="img/projects_ec2.png" alt="Helper methods for the recombination function.">
+      <figcaption>Helper methods for the recombination function.</figcaption>
+    </figure>
+    <p>
+      It should be noted that these methods can be used to evolve mutliple agents at a time, and are also able to be used for the Ghost agents.
+      In fact, we also investigated evolving Ghost agents and Pacman agents against each other, and used competitive coevolution to evolve the best Ghost and Pacman agents.
+    </p>
   </div>
 </section>
 <section class="accordion">

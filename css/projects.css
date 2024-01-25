@@ -12,6 +12,16 @@ body {
     opacity: 1;
   }
 }
+@keyframes slideDownAnimation {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: auto;
+  }
+}
 /*
  CSS for the main interaction
 */
@@ -29,6 +39,7 @@ body {
 .accordion > input[type=checkbox]:checked ~ .content {
   height: auto;
   overflow: visible;
+  animation: fadeInAnimation ease 0.5s;
 }
 
 .accordion label {
@@ -121,6 +132,10 @@ h1 {
 
 .accordion p:last-child {
   margin-bottom: 0;
+}
+
+.image {
+  max-width: 75%;
 }
 
 /*# sourceMappingURL=projects.css.map */
