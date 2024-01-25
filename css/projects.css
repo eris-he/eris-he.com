@@ -51,7 +51,6 @@ body {
 */
 body {
   color: #e8e8e8;
-  font-weight: 300;
 }
 
 .accordion {
@@ -112,7 +111,7 @@ body {
 }
 
 a {
-  color: #06c;
+  color: rgb(131, 172, 214);
 }
 
 p {
