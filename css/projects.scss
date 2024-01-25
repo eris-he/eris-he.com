@@ -29,7 +29,7 @@ body {
 /*
  CSS for the main interaction
 */
-.accordion > input[type="checkbox"] {
+  .accordion > input[type="checkbox"] {
     position: absolute;
     left: -100vw;
   }
@@ -113,10 +113,6 @@ body {
     box-sizing: border-box;
   }
   
-  body {
-    padding: 40px;
-  }
-  
   a {
     color: rgb(131, 172, 214);
   }
@@ -142,4 +138,8 @@ body {
 
   .image {
     max-width: 75%;
+  }
+
+  .main-container {
+    padding:40px;
   }

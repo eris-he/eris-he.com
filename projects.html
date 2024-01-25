@@ -12,242 +12,244 @@
 
 <h2>Projects</h2>
 <body>
-  <section class="accordion">
-    <input type="checkbox" name="collapse" id="handle1">
-    <h2 class="handle">
-      <label for="handle1">A.I. Pacman Agent</label>
-    </h2>
-    <div class="content">
-      <video class="image" controls autoplay>
-        <source src="img/exhibition_game_vid.mov" type="video/mp4">
-      </video>
-      <p>
-        Above, you can view an exhibition game played between the best evolved Pacman agents and random Ghost agents.
-      </p>
-      <p>Using evolutionary computing methods, this self-playing Pacman agent uses a Koza-tree style algorithm to determine the next best possible action to take.</p>
-      <p>
-        In this project, we are trying to evolve the best possible Pacman agent to play the game--in other words, find the agent with the highest fitness. 
-        The fitness function is based on the score of the game, with a higher score resulting in a higher fitness.
-        We generate an initial population of random Pacman agents, and then evolve them over a number of generations.
-        At the final generation, we select the agent with the highest fitness as the best agent.
-      </p>
-      <p>
-        The initial population's genes are generated randomly through ramped half-and-half initialization. 
-        Each individual represents a tree of actions that the agent can take, with each node representing an action and each leaf representing a terminal state.
-        The actions are based on the possible actions that Pacman can take in the game, and the terminal states are based on the possible states that Pacman can be in.
-        Each individual is also assigned an initial fitness value based on the fitness function (in other words, how well it plays the game).
-      </p>
-      <figure>
-        <img class="image" src="img/projects_ec1.png" alt="The full function for the ramped half-and-half.">
-        <figcaption>The full function for the ramped half-and-half.</figcaption>
-      </figure>
-      <p>
-        The genes are then recombined and mutated through subtree mutation, subtree crossover, and point mutation. 
-        We use a fitness-based selection method (k-tournament without replacement) to select the survivors and therefore also reproduce for the next generation.
-        A penalty function based on the depth of the tree is used to encourage smaller trees and thus more efficient agents.
-      </p>
-      <p>
-        This process is repeated for a number of generations, and the agent with the highest fitness at the end is selected as the best agent.
-      </p>
-      <figure>
-        <img class="image" src="img/projects_ec2.png" alt="Helper methods for the recombination function.">
-        <figcaption>Helper methods for the recombination function.</figcaption>
-      </figure>
-      <p>
-        It should be noted that these methods can be used to evolve mutliple agents at a time, and are also able to be used for the Ghost agents.
-        In fact, we also investigated evolving Ghost agents and Pacman agents against each other, and used competitive coevolution to evolve the best Ghost and Pacman agents.
-      </p>
-    </div>
-  </section>
-  
-  <section class="accordion">
-    <input type="checkbox" name="collapse2" id="handle2">
-    <h2 class="handle">
-      <label for="handle2">Well Red Bookshelves</label>
-    </h2>
-    <div class="content">
-      <figure>
-        <img class="image" src="img/projects_wr1.png" alt="The Well Red Bookshelves website.">
-        <figcaption>The home page of the <a href="https://wellredbookshelves.com">Well Red Bookshelves website.</a></figcaption>
-      </figure>
-      <p>Developed for a local coffee shop, Well Red, this web app allows users to browse and search the shop's current book inventory. Users can also reserve books for pickup at the shop, or request books that are not in stock.
-          Admins are able to manage users, manage reservations and requests, and update the inventory.
-      </p>
-      <p>Notably, the site is connected to the shop's Square account so that the inventory is automatically updated when books are sold.
-        This was done by using Square's API to retrieve the inventory and then display it on the site. Book covers are retrieved from the OpenLibrary API.
-      </p>
-      <p>
-        This project also includes an ISBN barcode scanner that allows admins to quickly scan books and add them to the inventory. It also allows admins to update the Square inventory from the physical inventory.
-      </p>
-      <p>I designed, developed, and deployed this app from scratch, including the UI/UX elements, code, and database. </p>
-      <p>
-        Written in pure PHP, this project uses the MVC design pattern. The database is a MySQL database, and the site is hosted on my personal server (the same one of which is running this site right now!).
-      </p>
-      <p>
-        The code for this project is available at my <a href="https://github.com/eris-he/bookshelves">GitHub here</a>.
-      </p>
-    </div>
-  </section>
-  
-  <section class="accordion">
-    <input type="checkbox" name="collapse2" id="handle3">
-    <h2 class="handle">
-      <label for="handle3">Lung Tumor Imaging</label>
-    </h2>
-    <div class="content">
-      <figure>
-        <img class="image" src="img/projects_onco1.jpeg" alt="OncoBOT site.">
-        <figcaption>The home page of OncoBOT.</figcaption>
-      </figure>
-      <p>Developed for MHacks. This project uses a machine learning algorithm in conjunction with Microsoft's computer vision API to analyze CT scans of lungs and identify lung nodules.
-         Using the website, doctors can submit a CT scan and get instant data on the locations of potential lung nodules, and the probability they are cancerous.
-      </p>
-      <p>
-        The training set is made up of a detailed study done at Cornell consisting of roughly 250 CT scans of healthy and cancerous lungs. 
-        Each lung scan corresponds to a host of detailed information, such as the size of nodule, the location of nodule, benign versus malignant tumor, etc.
-      </p>
-      <p>
-        One particular problem we ran into was that the dataset of CT scan images existed only in an image format specific to the medical industry. 
-        This required us to write several batch image processing scripts to standardize all several hundred images before we could start processing them.
-        From there, we used openCV's SIFT feature detection and a k-means clustering algorithm on each of the Cornell CT scans in combination with each image's details to form an accurate learning set.
-      </p>
-      <figure>
-        <img class="image" src="img/projects_onco2.png" alt="Part of our ML algorithm">
-        <figcaption>A snippet of our ML algorithm using k-means clustering.</figcaption>
-      </figure>
-      <p>
-        Even though we had a very small training set, we were able to achieve meaningful results (accuracy > 75%) with what we had.
-      </p>
-      <div class="row">
-        <figure>
-          <img class="image" src="img/projects_onco3.jpeg" alt="Some of our results">
-          <img class="image" src="img/projects_onco4.jpeg" alt="Some of our results">
-          <figcaption>Our results.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-  
-  <section class="accordion">
-    <input type="checkbox" name="collapse2" id="handle4">
-    <h2 class="handle">
-      <label for="handle4">AU Masterpage</label>
-    </h2>
-    <div class="content">
-      <figure>
-        <img class="image" src="img/projects_mp1.png" alt="The AU Masterpage.">
-        <figcaption>The navigation menu of the GEDI site with the new AU Masterpage</figcaption>
-      </figure>
-      <p>
-        <i>
-          "The master page allows you to define content that will be shared by all pages on the website, such as a header, navigation menu, or footer. 
-          A master page does not represent a physical page on the website, but rather a design component that is added to other pages to ensure a uniform look."
-        </i>
-        <br>
-        -- Kentico, 2020
-      </p>
-      <p>
-        
-      </p>
-      <p> 
-        As part of the branding overhaul for Auburn University's webpages, I helped develop the masterpage that would be used for all of the university's webpages.
-        Most notably, this included an upgrade to Bootstrap 5 from Bootstrap 3 and 4, and a complete overhaul of the CSS.
-      </p>
-      <p>
-        Using principles, directives, and guidelines from the Office of Communications and Marketing, I worked with our lead developer to develop and apply the new masterpage.
-        This included creating a new header with links that could be modified as needed per site, a responsive and customizable navigation menu, and a transforming logo.
-        The main content of the page is wrapped in a custom container that allows for a standardized, yet responsive layout. This container is also able to be overwritten as needed for particular sites.
-        The footer was also standardized and split into a top and bottom section, with the top section being the universal university layout and the bottom section being customizable.
-      </p>
-      <p>
-        Additionally, this masterpage rewrite coincided with the move of many of our web apps to the cloud, so it was important that the masterpage be compatible with both our on-prem environment and the cloud environment.
-        We also had to provide a custom Path Provider in order to allow the masterpage to be accessed correctly.
-      </p>
+  <div class="main-container">
 
-      <p>
-        I also helped rewrite our cookies script, including adding a new cookie consent banner and updating the cookie policy.
-        We had to make sure that our cookies were consistent with the new GDPR regulations and that we were not collecting any unnecessary data.
-      </p>
-      <div class="row">
+    <section class="accordion">
+      <input type="checkbox" name="collapse" id="handle1">
+      <h2 class="handle">
+        <label for="handle1">A.I. Pacman Agent</label>
+      </h2>
+      <div class="content">
+        <video class="image" controls autoplay>
+          <source src="img/exhibition_game_vid.mov" type="video/mp4">
+        </video>
+        <p>
+          Above, you can view an exhibition game played between the best evolved Pacman agents and random Ghost agents.
+        </p>
+        <p>Using evolutionary computing methods, this self-playing Pacman agent uses a Koza-tree style algorithm to determine the next best possible action to take.</p>
+        <p>
+          In this project, we are trying to evolve the best possible Pacman agent to play the game--in other words, find the agent with the highest fitness. 
+          The fitness function is based on the score of the game, with a higher score resulting in a higher fitness.
+          We generate an initial population of random Pacman agents, and then evolve them over a number of generations.
+          At the final generation, we select the agent with the highest fitness as the best agent.
+        </p>
+        <p>
+          The initial population's genes are generated randomly through ramped half-and-half initialization. 
+          Each individual represents a tree of actions that the agent can take, with each node representing an action and each leaf representing a terminal state.
+          The actions are based on the possible actions that Pacman can take in the game, and the terminal states are based on the possible states that Pacman can be in.
+          Each individual is also assigned an initial fitness value based on the fitness function (in other words, how well it plays the game).
+        </p>
         <figure>
-          <img class="image" src="img/projects_mp2.png" alt="The old AEAlumni site">
-          <img class="image" src="img/projects_mp3.png" alt="The new AEAlumni site">
-          <figcaption>The old AEAlumni site vs the new AEAlumni site (note that the new site is being run in debug with test data in that screenshot).</figcaption>
+          <img class="image" src="img/projects_ec1.png" alt="The full function for the ramped half-and-half.">
+          <figcaption>The full function for the ramped half-and-half.</figcaption>
         </figure>
+        <p>
+          The genes are then recombined and mutated through subtree mutation, subtree crossover, and point mutation. 
+          We use a fitness-based selection method (k-tournament without replacement) to select the survivors and therefore also reproduce for the next generation.
+          A penalty function based on the depth of the tree is used to encourage smaller trees and thus more efficient agents.
+        </p>
+        <p>
+          This process is repeated for a number of generations, and the agent with the highest fitness at the end is selected as the best agent.
+        </p>
+        <figure>
+          <img class="image" src="img/projects_ec2.png" alt="Helper methods for the recombination function.">
+          <figcaption>Helper methods for the recombination function.</figcaption>
+        </figure>
+        <p>
+          It should be noted that these methods can be used to evolve mutliple agents at a time, and are also able to be used for the Ghost agents.
+          In fact, we also investigated evolving Ghost agents and Pacman agents against each other, and used competitive coevolution to evolve the best Ghost and Pacman agents.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
+    
+    <section class="accordion">
+      <input type="checkbox" name="collapse2" id="handle2">
+      <h2 class="handle">
+        <label for="handle2">Well Red Bookshelves</label>
+      </h2>
+      <div class="content">
+        <figure>
+          <img class="image" src="img/projects_wr1.png" alt="The Well Red Bookshelves website.">
+          <figcaption>The home page of the <a href="https://wellredbookshelves.com">Well Red Bookshelves website.</a></figcaption>
+        </figure>
+        <p>Developed for a local coffee shop, Well Red, this web app allows users to browse and search the shop's current book inventory. Users can also reserve books for pickup at the shop, or request books that are not in stock.
+            Admins are able to manage users, manage reservations and requests, and update the inventory.
+        </p>
+        <p>Notably, the site is connected to the shop's Square account so that the inventory is automatically updated when books are sold.
+          This was done by using Square's API to retrieve the inventory and then display it on the site. Book covers are retrieved from the OpenLibrary API.
+        </p>
+        <p>
+          This project also includes an ISBN barcode scanner that allows admins to quickly scan books and add them to the inventory. It also allows admins to update the Square inventory from the physical inventory.
+        </p>
+        <p>I designed, developed, and deployed this app from scratch, including the UI/UX elements, code, and database. </p>
+        <p>
+          Written in pure PHP, this project uses the MVC design pattern. The database is a MySQL database, and the site is hosted on my personal server (the same one of which is running this site right now!).
+        </p>
+        <p>
+          The code for this project is available at my <a href="https://github.com/eris-he/bookshelves">GitHub here</a>.
+        </p>
+      </div>
+    </section>
+    
+    <section class="accordion">
+      <input type="checkbox" name="collapse2" id="handle3">
+      <h2 class="handle">
+        <label for="handle3">Lung Tumor Imaging</label>
+      </h2>
+      <div class="content">
+        <figure>
+          <img class="image" src="img/projects_onco1.jpeg" alt="OncoBOT site.">
+          <figcaption>The home page of OncoBOT.</figcaption>
+        </figure>
+        <p>Developed for MHacks. This project uses a machine learning algorithm in conjunction with Microsoft's computer vision API to analyze CT scans of lungs and identify lung nodules.
+           Using the website, doctors can submit a CT scan and get instant data on the locations of potential lung nodules, and the probability they are cancerous.
+        </p>
+        <p>
+          The training set is made up of a detailed study done at Cornell consisting of roughly 250 CT scans of healthy and cancerous lungs. 
+          Each lung scan corresponds to a host of detailed information, such as the size of nodule, the location of nodule, benign versus malignant tumor, etc.
+        </p>
+        <p>
+          One particular problem we ran into was that the dataset of CT scan images existed only in an image format specific to the medical industry. 
+          This required us to write several batch image processing scripts to standardize all several hundred images before we could start processing them.
+          From there, we used openCV's SIFT feature detection and a k-means clustering algorithm on each of the Cornell CT scans in combination with each image's details to form an accurate learning set.
+        </p>
+        <figure>
+          <img class="image" src="img/projects_onco2.png" alt="Part of our ML algorithm">
+          <figcaption>A snippet of our ML algorithm using k-means clustering.</figcaption>
+        </figure>
+        <p>
+          Even though we had a very small training set, we were able to achieve meaningful results (accuracy > 75%) with what we had.
+        </p>
+        <div class="row">
+          <figure>
+            <img class="image" src="img/projects_onco3.jpeg" alt="Some of our results">
+            <img class="image" src="img/projects_onco4.jpeg" alt="Some of our results">
+            <figcaption>Our results.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    
+    <section class="accordion">
+      <input type="checkbox" name="collapse2" id="handle4">
+      <h2 class="handle">
+        <label for="handle4">AU Masterpage</label>
+      </h2>
+      <div class="content">
+        <figure>
+          <img class="image" src="img/projects_mp1.png" alt="The AU Masterpage.">
+          <figcaption>The navigation menu of the GEDI site with the new AU Masterpage</figcaption>
+        </figure>
+        <p>
+          <i>
+            "The master page allows you to define content that will be shared by all pages on the website, such as a header, navigation menu, or footer. 
+            A master page does not represent a physical page on the website, but rather a design component that is added to other pages to ensure a uniform look."
+          </i>
+          <br>
+          -- Kentico, 2020
+        </p>
+        <p> 
+          As part of the branding overhaul for Auburn University's webpages, I helped develop the masterpage that would be used for all of the university's webpages.
+          Most notably, this included an upgrade to Bootstrap 5 from Bootstrap 3 and 4, and a complete overhaul of the CSS.
+        </p>
+        <p>
+          Using principles, directives, and guidelines from the Office of Communications and Marketing, I worked with our lead developer to develop and apply the new masterpage.
+          This included creating a new header with links that could be modified as needed per site, a responsive and customizable navigation menu, and a transforming logo.
+          The main content of the page is wrapped in a custom container that allows for a standardized, yet responsive layout. This container is also able to be overwritten as needed for particular sites.
+          The footer was also standardized and split into a top and bottom section, with the top section being the universal university layout and the bottom section being customizable.
+        </p>
+        <p>
+          Additionally, this masterpage rewrite coincided with the move of many of our web apps to the cloud, so it was important that the masterpage be compatible with both our on-prem environment and the cloud environment.
+          We also had to provide a custom Path Provider in order to allow the masterpage to be accessed correctly.
+        </p>
   
-  <section class="accordion">
-    <input type="checkbox" name="collapse2" id="handle5">
-    <h2 class="handle">
-      <label for="handle5">Robocup</label>
-    </h2>
-    <div class="content">
-      <figure>
-        <img class="image" src="img/projects_rc2.png" alt="Our custom Linux desktop app from which we can monitor, trial, and test our robots.">
-        <figcaption>Our custom Linux desktop app from which we can monitor, trial, and test our robots.</figcaption>
-      </figure>
-      <p>From the robocup.org website: "RoboCup is an international scientific initiative with the goal to advance the state of the art of intelligent robots."
-          More specifically, it is about developing robots that can play soccer autonomously.</p>
-      <p>I was part of the Georgia Tech Robojackets team, specializing in the electrical and software aspects of the robots.
-          We competed specifically in the SSL (Small Size League) division, which uses robots that are about 7 inches in diameter to play an 11 vs 11 match.
-      </p>
-      <p>
-        On the electrical side, I was part of the redesigning overhaul. I helped design and build the new control board, radio board, and breakbeam board for the robots.
-        This also included custom designing our own solenoids to power the kicker, as well as switching from 4-layer boards to 8-layer boards in order to implement more complicated functionality.
-        We also needed to design voltage regulation circuits in order to produce 5V and 3.3V voltage levels from the 18.5V LiPo battery, since 18.5V is only needed for the kicker.
-        Many of our constraits came from the mechanical side--the custom solenoid, for example, was necessary because of the shape of the robot and the placement of the kicker.
-        Our FPGA handled all of the wheel drivers and the dribble driver, including the SPI interface to those motor drivers.
-      </p>
-      <figure>
-        <img class="image" src="img/projects_rc1.png" alt="The new control board.">
-        <figcaption>The new control board.</figcaption>
-      </figure>
-      <p>
-        For software, I helped integrate the new control board and the new firmware into the existing software codebase.
-        I also helped with implementing code to estimate the best course of action for the team of robots to take, and to implement the best course of action.
-        This was particularly complicated since the robots are autonomous and must be able to make decisions on their own.
-        Additionally, they are pitted against an enemy team of robots, and thus the game state is constantly changing and unpredictable.
-      </p>
-      <p>
-        Our decision-making process was written mostly in Python, but it inherits from a C++ codebase that handles the low-level robot control.
-        We used a 2D transforming matrix system to map the camera's view of the field to a top-down view of the field, and then used that to determine the best course of action.
-        We also used a Kalman filter to estimate the position of the ball and the robots, and publish that as a built world state message for the rest of codebase to use.
-      </p>
-      <figure>
-        <img class="image" src="img/projects_rc3.png" alt="Our gameplay structure.">
-        <figcaption>Our gameplay structure.</figcaption>
-      </figure>
-      <p>
-        On a side note, we had to write a new team description paper (TDP) every year, which is a 10-20 page paper that describes the technical aspects of our robots.
-        It was probably the single most harrowing experience of my life.
-      </p>
-    </div>
-  </section>
+        <p>
+          I also helped rewrite our cookies script, including adding a new cookie consent banner and updating the cookie policy.
+          We had to make sure that our cookies were consistent with the new GDPR regulations and that we were not collecting any unnecessary data.
+        </p>
+        <div class="row">
+          <figure>
+            <img class="image" src="img/projects_mp2.png" alt="The old AEAlumni site">
+            <img class="image" src="img/projects_mp3.png" alt="The new AEAlumni site">
+            <figcaption>The old AEAlumni site vs the new AEAlumni site (note that the new site is being run in debug with test data in that screenshot).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    
+    <section class="accordion">
+      <input type="checkbox" name="collapse2" id="handle5">
+      <h2 class="handle">
+        <label for="handle5">Robocup</label>
+      </h2>
+      <div class="content">
+        <figure>
+          <img class="image" src="img/projects_rc2.png" alt="Our custom Linux desktop app from which we can monitor, trial, and test our robots.">
+          <figcaption>Our custom Linux desktop app from which we can monitor, trial, and test our robots.</figcaption>
+        </figure>
+        <p>From the robocup.org website: "RoboCup is an international scientific initiative with the goal to advance the state of the art of intelligent robots."
+            More specifically, it is about developing robots that can play soccer autonomously.</p>
+        <p>I was part of the Georgia Tech Robojackets team, specializing in the electrical and software aspects of the robots.
+            We competed specifically in the SSL (Small Size League) division, which uses robots that are about 7 inches in diameter to play an 11 vs 11 match.
+        </p>
+        <p>
+          On the electrical side, I was part of the redesigning overhaul. I helped design and build the new control board, radio board, and breakbeam board for the robots.
+          This also included custom designing our own solenoids to power the kicker, as well as switching from 4-layer boards to 8-layer boards in order to implement more complicated functionality.
+          We also needed to design voltage regulation circuits in order to produce 5V and 3.3V voltage levels from the 18.5V LiPo battery, since 18.5V is only needed for the kicker.
+          Many of our constraits came from the mechanical side--the custom solenoid, for example, was necessary because of the shape of the robot and the placement of the kicker.
+          Our FPGA handled all of the wheel drivers and the dribble driver, including the SPI interface to those motor drivers.
+        </p>
+        <figure>
+          <img class="image" src="img/projects_rc1.png" alt="The new control board.">
+          <figcaption>The new control board.</figcaption>
+        </figure>
+        <p>
+          For software, I helped integrate the new control board and the new firmware into the existing software codebase.
+          I also helped with implementing code to estimate the best course of action for the team of robots to take, and to implement the best course of action.
+          This was particularly complicated since the robots are autonomous and must be able to make decisions on their own.
+          Additionally, they are pitted against an enemy team of robots, and thus the game state is constantly changing and unpredictable.
+        </p>
+        <p>
+          Our decision-making process was written mostly in Python, but it inherits from a C++ codebase that handles the low-level robot control.
+          We used a 2D transforming matrix system to map the camera's view of the field to a top-down view of the field, and then used that to determine the best course of action.
+          We also used a Kalman filter to estimate the position of the ball and the robots, and publish that as a built world state message for the rest of codebase to use.
+        </p>
+        <figure>
+          <img class="image" src="img/projects_rc3.png" alt="Our gameplay structure.">
+          <figcaption>Our gameplay structure.</figcaption>
+        </figure>
+        <p>
+          On a side note, we had to write a new team description paper (TDP) every year, which is a 10-20 page paper that describes the technical aspects of our robots.
+          It was probably the single most harrowing experience of my life.
+        </p>
+      </div>
+    </section>
+    
+    <section class="accordion">
+      <input type="checkbox" name="collapse" id="handle6">
+      <h2 class="handle">
+        <label for="handle6">Computational Astrophysics Research</label>
+      </h2>
+      <div class="content">
+        <p>
+          More information coming soon!
+        </p>
+      </div>
+    </section>
   
-  <section class="accordion">
-    <input type="checkbox" name="collapse" id="handle6">
-    <h2 class="handle">
-      <label for="handle6">Computational Astrophysics Research</label>
-    </h2>
-    <div class="content">
-      <p>
-        More information coming soon!
-      </p>
-    </div>
-  </section>
+    <section class="accordion">
+      <input type="checkbox" name="collapse" id="handle7">
+      <h2 class="handle">
+        <label for="handle7">Game Development</label>
+      </h2>
+      <div class="content">
+        <p>
+          More information coming soon!
+        </p>
+      </div>
+    </section>
 
-  <section class="accordion">
-    <input type="checkbox" name="collapse" id="handle7">
-    <h2 class="handle">
-      <label for="handle7">Game Development</label>
-    </h2>
-    <div class="content">
-      <p>
-        More information coming soon!
-      </p>
-    </div>
+  </div>
 </body>
 
 <script src="scripts/Site.js"></script>

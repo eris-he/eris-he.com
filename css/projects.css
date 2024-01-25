@@ -106,10 +106,6 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  padding: 40px;
-}
-
 a {
   color: rgb(131, 172, 214);
 }
@@ -135,6 +131,10 @@ h1 {
 
 .image {
   max-width: 75%;
+}
+
+.main-container {
+  padding: 40px;
 }
 
 /*# sourceMappingURL=projects.css.map */
