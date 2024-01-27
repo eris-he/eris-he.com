@@ -413,3 +413,12 @@ $animation-offset: 80px;
 		opacity: 1;
 	}
 }
+
+// Generic Styling
+#nav-home {
+  display:none !important;
+}
+
+#nav-home::before {
+  display:none !important;
+}

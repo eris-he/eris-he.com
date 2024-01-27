@@ -145,3 +145,9 @@ body {
   .main-container {
     padding:40px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .accordion .handle {
+      font-size:4rem;
+    }
+  }
