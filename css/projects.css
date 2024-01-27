@@ -100,7 +100,7 @@ body {
 /*
  Live site styling
 */
-*,
+body > *,
 *:before,
 *:after {
   box-sizing: border-box;
@@ -111,8 +111,10 @@ a {
 }
 
 p {
-  margin: 0 0 1em;
+  margin: 0 0 1.5em;
   font-size: max(12pt, 2.5vmin);
+  text-align: justify;
+  padding: 0 1rem 0 1rem;
 }
 
 h1 {
