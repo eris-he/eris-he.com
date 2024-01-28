@@ -112,13 +112,17 @@ body{
 
 .full-screen {
     position: fixed;
+    max-width: 100vw;
+    min-width: 100vw;
+    max-height: 100vh;
+    min-height: 100vh;
     left: 50%;
     top: 0;
     transform: translate(-50%, 0);
     animation: go-full-screen forwards 500ms ease-in-out, fadeIn 500ms;
-    max-width: 100vw;
     backdrop-filter: blur(10px);
     z-index: 1000;
+    object-fit:contain;
 }
 
 // body > *:not(.full-screen) {
@@ -137,7 +141,6 @@ body{
         transform: translate(-50%, 0);
     }
     to {
-        height: 100vh;
         margin: auto;
     }
 }

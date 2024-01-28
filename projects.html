@@ -28,10 +28,10 @@
         </p>
         <p>Using evolutionary computing methods, this self-playing Pacman agent uses a Koza-tree style algorithm to determine the next best possible action to take.</p>
         <p>
-          In this project, we are trying to evolve the best possible Pacman agent to play the game--in other words, find the agent with the highest fitness. 
+          In this project, the objective is to evolve the best possible Pacman agent to play the game--in other words, find the agent with the highest fitness. 
           The fitness function is based on the score of the game, with a higher score resulting in a higher fitness.
-          We generate an initial population of random Pacman agents, and then evolve them over a number of generations.
-          At the final generation, we select the agent with the highest fitness as the best agent.
+          First, I generate an initial population of random Pacman agents, and then evolve them over a number of generations.
+          At the final generation, the agent with the highest fitness is selected as the best agent.
         </p>
         <p>
           The initial population's genes are generated randomly through ramped half-and-half initialization. 
@@ -196,7 +196,7 @@
           On the electrical side, I was part of the redesigning overhaul. I helped design and build the new control board, radio board, and breakbeam board for the robots.
           This also included custom designing our own solenoids to power the kicker, as well as switching from 4-layer boards to 8-layer boards in order to implement more complicated functionality.
           We also needed to design voltage regulation circuits in order to produce 5V and 3.3V voltage levels from the 18.5V LiPo battery, since 18.5V is only needed for the kicker.
-          Many of our constraits came from the mechanical side--the custom solenoid, for example, was necessary because of the shape of the robot and the placement of the kicker.
+          Many of our constraints came from the mechanical side--the custom solenoid, for example, was necessary because of the shape of the robot and the placement of the kicker.
           Our FPGA handled all of the wheel drivers and the dribble driver, including the SPI interface to those motor drivers.
         </p>
         <figure>

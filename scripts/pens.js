@@ -191,6 +191,11 @@ const toggleFullScreen = (e) => {
 
   // Clone the element and its children
   let fullScreen = e.target.cloneNode(true)
+  // Doing this removes the sliding event listener on the cloned element 
+  // so it won't follow the mouse around in full screen
+  fullScreen.classList.remove("cm-slider__image")
+
+  // blurring all other elements
   blurExceptElement(fullScreen);
 
   // Set top and left with custom property
