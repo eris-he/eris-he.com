@@ -131,7 +131,7 @@ a:hover {
     box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
     height: 100vh;
     /* width: 99.8%; */
-    width: 100vw;
+    width: 100%;
     transform: translate(-150%);
     display: flex;
     flex-direction: column;
