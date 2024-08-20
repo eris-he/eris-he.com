@@ -24,7 +24,7 @@
 <h2>Projects</h2>
 <body>
   <div class="main-container">
-
+    
     <section class="accordion">
       <input type="checkbox" name="collapse" id="handle1">
       <h2 class="handle">
@@ -74,9 +74,60 @@
     </section>
     
     <section class="accordion">
-      <input type="checkbox" name="collapse2" id="handle2">
+      <input type="checkbox" name="collapse" id="handle2">
       <h2 class="handle">
-        <label for="handle2">Well Red Bookshelves</label>
+        <label for="handle2">Computational Astrophysics Research</label>
+      </h2>
+      <div class="content">
+        <figure>
+          <img class="image" src="img/raw_data.png" alt="Raw data from JWST">
+          <figcaption>Raw data from one pixel of a 90x90x90 space cube.</figcaption>
+        </figure>
+        <p>
+          Multivariate curve resolution--an issue that has been around for as long as spectroscopy has existed.
+          This is the name given to the problem of separating the spectra of different sources from a single spectrum. 
+          In astronomy, the problem looks like this: you have a spectrum, but how is that spectrum formed? 
+          What is the composition of the sources that make up that spectrum?
+        </p>
+        <p>
+          In order to approach this problem, I applied evolutionary computing techniques. I came up with a 2-stage method.
+        </p>
+        <p>
+          First, I applied a sparse multi-objective evolutionary algorithm with custom recombination and mutation functions to find the likely consitituents of the spectrum.
+          In other words, we optimize the fitness of indiviuals towards zero in terms of both number of lines and distance to closest line when overlaid with the original spectrum.
+          This gives us a set of possible constituents, or a list of elements and molecules that may make up the spectrum.
+        </p>
+        <p>
+          Second, I used a differential evolution algorithm to find the best fit for the constituents found in the first stage.
+          This algorithm optimizes the fitness of individuals based on the similarity in shape to the original spectrum.
+          By including bias (i.e. temperature having an exponential effect on amplitude), we are able to reach convergence within 100 generations.
+        </p>
+        <p>
+          Using these methods also required a custom and normalized database of elements and molecules, as well as a custom fitness function.
+          The database was created by taking the NIST Atomic Database, the HITRAN database, and the Leiden Atomic and Molecular Database and combining them together.
+          Each database was normalized in order to use the same units and be at the same "resolution", so to speak.
+        </p>
+        <span>
+          <figure>
+            <img class="image" src="img/constructed.png" alt="The original test spectrum.">
+            <figcaption>The original test spectrum.</figcaption>
+          </figure>
+          <figure>
+            <img class="image" src="img/reconstructed.png" alt="The spectrum predicted by the differential algorithm.">
+            <figcaption>The spectrum predicted by the differential algorithm.</figcaption>
+          </figure>
+        </span>
+        <p>
+          The preliminary results are promising, with the algorithm being able to identify at least 50% of the correct constituents in 97% of cases.
+          The differential algorithm was able to fit the constituents to the original spectrum with an average error of +/- 0.12.
+        </p>
+      </div>
+    </section>
+
+    <section class="accordion">
+      <input type="checkbox" name="collapse2" id="handle3">
+      <h2 class="handle">
+        <label for="handle3">Well Red Bookshelves</label>
       </h2>
       <div class="content">
         <figure>
@@ -103,9 +154,9 @@
     </section>
     
     <section class="accordion">
-      <input type="checkbox" name="collapse2" id="handle3">
+      <input type="checkbox" name="collapse2" id="handle4">
       <h2 class="handle">
-        <label for="handle3">Lung Tumor Imaging</label>
+        <label for="handle4">Lung Tumor Imaging</label>
       </h2>
       <div class="content">
         <figure>
@@ -142,9 +193,9 @@
     </section>
     
     <section class="accordion">
-      <input type="checkbox" name="collapse2" id="handle4">
+      <input type="checkbox" name="collapse2" id="handle5">
       <h2 class="handle">
-        <label for="handle4">AU Masterpage</label>
+        <label for="handle5">AU Masterpage</label>
       </h2>
       <div class="content">
         <figure>
@@ -189,9 +240,9 @@
     </section>
     
     <section class="accordion">
-      <input type="checkbox" name="collapse2" id="handle5">
+      <input type="checkbox" name="collapse2" id="handle6">
       <h2 class="handle">
-        <label for="handle5">Robocup</label>
+        <label for="handle6">Robocup</label>
       </h2>
       <div class="content">
         <figure>
@@ -235,11 +286,11 @@
         </p>
       </div>
     </section>
-    
+  
     <section class="accordion">
-      <input type="checkbox" name="collapse" id="handle6">
+      <input type="checkbox" name="collapse" id="handle7">
       <h2 class="handle">
-        <label for="handle6">Computational Astrophysics Research</label>
+        <label for="handle7">Game Development</label>
       </h2>
       <div class="content">
         <p>
@@ -247,11 +298,11 @@
         </p>
       </div>
     </section>
-  
+
     <section class="accordion">
-      <input type="checkbox" name="collapse" id="handle7">
+      <input type="checkbox" name="collapse" id="handle8">
       <h2 class="handle">
-        <label for="handle7">Game Development</label>
+        <label for="handle8">Reverse Engineering FPGAs Research</label>
       </h2>
       <div class="content">
         <p>
